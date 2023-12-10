@@ -4,6 +4,14 @@
     margin: 0;
     padding: 0;
  }
+ a{
+  text-decoration: none;
+  display: block;
+  color: transparent;
+}
+a:hover{
+  color:inherit;
+}
  :root {
      --blue: #007bff;
      --indigo: #814ebf;
@@ -292,12 +300,16 @@ img {
            flex-wrap: wrap;
            justify-content: space-around;
        }
+       .Footer__list{
+        width: 40%;
+    }
    }
    @media  (max-width:600px) {
-       .Footer__list{
-           padding: 0 auto;
-       }
+       
        .list__item{
    
        }
    }
+
+
+    /*----Quotes----*/

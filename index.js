@@ -1,16 +1,19 @@
 
-skillContent = '<div class="regalias__skills_box"><div class="skills-item"><h2 class="skills-item__title">Languages</h3><ul class="skills-item__list"><li class="skills-item__li">-English:B1</li><li class="skills-item__li">-Ukrainian:Native</li></ul></div><div class="skills-item"><h2 class="skills-item__title">Design</h3><ul class="skills-item__list"><li class="skills-item__li">-Figma</li><li class="skills-item__li">-Photoshop</li><li class="skills-item__li">-CorelDraw</li></ul></div><div class="skills-item"><h2 class="skills-item__title">Programing</h3><ul class="skills-item__list"><li class="skills-item__li">-HTML/CSS/JS</li><li class="skills-item__li">-mySQL</li><li class="skills-item__li">-Python</li></ul></div></div>'
+let skillContent = '<div class="regalias__skills_box"><div class="skills-item"><h2 class="skills-item__title">Languages</h3><ul class="skills-item__list"><li class="skills-item__li">-English:B1</li><li class="skills-item__li">-Ukrainian:Native</li></ul></div><div class="skills-item"><h2 class="skills-item__title">Design</h3><ul class="skills-item__list"><li class="skills-item__li">-Figma</li><li class="skills-item__li">-Photoshop</li><li class="skills-item__li">-CorelDraw</li></ul></div><div class="skills-item"><h2 class="skills-item__title">Programing</h3><ul class="skills-item__list"><li class="skills-item__li">-HTML/CSS/JS</li><li class="skills-item__li">-mySQL</li><li class="skills-item__li">-Python</li></ul></div></div>'
+import {aboutMeContent} from './aboutMeContent.js';
 
 let inventoryFull = false
 let skillsFull = false
+let main = $("main")
 let regaliasContent = $(".regalias__content")
 let regaliasBox = $(".regalias__box")
 let currentSlide = $("._slider2")
 let leftButtonSlide = $("._slider-left")
 let rightButtonSlide = $("._slider-right")
 
+
 /*slider*/
-Quotes = ["Кодіть потрібно правильно, а не правильно не потрібно","Знаю все, окрім того що не знаю","Ти живеш як карта ляже , я живу як мама скаже"]
+let Quotes = ["Кодіть потрібно правильно, а не правильно не потрібно","Знаю все, окрім того що не знаю","Ти живеш як карта ляже , я живу як мама скаже"]
 let currentQuote = 0;
 $('.Quotes__slider').on("click", function(){
     console.log("s")
@@ -55,7 +58,7 @@ function generateInventory(){
     if (inventoryFull == false){
         
         let inventory = $('<div class="regalias__inventory"></div>')
-    for (i=0;i<2;i++){
+    for (let i=0 ; i<2 ;i++){
         inventory.append("<div class = 'item_box'><div class='item-caption'>asdasdasd<div/></div>");
     }
     regaliasBox.empty()
@@ -102,7 +105,7 @@ function generateInventory(){
 
 let aboutMeTab = $('.aboutMe')
 let examplesTab = $('.examplesTab')
-let main = $("main")
+
 let mainContent = $('main').children().clone()
 let imagesSiteExamples = ['','']
 examplesTab.on('click',()=>{
@@ -120,7 +123,8 @@ function generateExamplesTab(){
 }
 function generateAboutMeTab(){
     main.empty()
-    $("main").append(mainContent.clone())
+    main.append(aboutMeContent)
+    //$("main").append(mainContent.clone())
     inventoryFull = false
     skillsFull = false
     regaliasContent = $(".regalias__content")

@@ -24,9 +24,9 @@ console.log(rightButtonSlide)
 
 
 $('document').ready(function() {
-    generateAboutMeTab()
-    changeQuoteText()
-    generateInventory()
+    //generateAboutMeTab()
+    //changeQuoteText()
+    //generateInventory()
 });
 
 

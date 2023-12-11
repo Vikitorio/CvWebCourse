@@ -43,13 +43,7 @@ a:hover{
      --font-family-pixel: 'Pixelify Sans', sans-serif;
      --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
  }
- a{
-     text-decoration: none;
-     color: transparent;
- }
- a:hover{
-     color: transparent;
- }
+
  html{
      font-family: sans-serif;
  }
@@ -62,6 +56,7 @@ a:hover{
    color: inherit;
    border: none;
    background-color: inherit;
+   display: block;
  }
  button:hover{
    
@@ -98,6 +93,10 @@ img {
    border: none;
    color: #fff;
    cursor: pointer;
+}
+._btn{
+  border: solid 3px #000;
+  padding: 3px 10px 3px 10px;
 }
  /*----Header----*/
  ._box{
@@ -317,3 +316,37 @@ img {
 /*----Quotes----*/
 
 /*----Contact me----*/
+.contact-me{
+  max-width: 80%;
+  margin:  0 0 0 30px;
+}
+.contact-me__info{
+  display: flex;
+  flex:1 1 80%;
+  margin: 3px 0 3px 0;
+  
+ }
+.contact-me__inputs-box{
+  display: flex;
+  flex-wrap: wrap;
+
+
+}
+._request-topic{
+  flex-basis:100%;
+  margin:15px 0 15px 0 ;
+}
+
+.contact-me__textbox{
+  
+}
+.contact-me__input-title{
+  min-width: 150px;
+  margin-right: 10px;
+}
+.contact-me__input{
+  width: 100%;
+}
+.contact-me__textbox{
+  width: 100%;
+}

@@ -1,4 +1,5 @@
-export let  aboutMeContent = ` <section title="quotes" class="quotes _box">
+export let  aboutMeContent = ` 
+<section title="quotes" class="quotes _box">
 <div class="quotes__slider">
     <button class="quotes__button _slider-left"></button>
     <div class="quotes__element _slider2"></div>
@@ -22,5 +23,6 @@ export let  aboutMeContent = ` <section title="quotes" class="quotes _box">
             
     </div>
 </div>
-</section>`
+</section>
+`
 

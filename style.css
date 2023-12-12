@@ -162,6 +162,12 @@ img {
   }
    
  }
+ .aboutMe__text{
+  padding: 30px;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+ }
  /*----Quotes----*/
  .quotes{
    height: 300px;

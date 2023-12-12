@@ -1,7 +1,8 @@
 
 let skillContent = '<div class="regalias__skills_box"><div class="skills-item"><h2 class="skills-item__title">Languages</h3><ul class="skills-item__list"><li class="skills-item__li">-English:B1</li><li class="skills-item__li">-Ukrainian:Native</li></ul></div><div class="skills-item"><h2 class="skills-item__title">Design</h3><ul class="skills-item__list"><li class="skills-item__li">-Figma</li><li class="skills-item__li">-Photoshop</li><li class="skills-item__li">-CorelDraw</li></ul></div><div class="skills-item"><h2 class="skills-item__title">Programing</h3><ul class="skills-item__list"><li class="skills-item__li">-HTML/CSS/JS</li><li class="skills-item__li">-mySQL</li><li class="skills-item__li">-Python</li></ul></div></div>'
 import {aboutMeContent} from './aboutMeContent.js';
-
+import {contactMeContent} from './contactMeContent.js';
+import { regaliasListItems } from './regaliasListItems.js';
 let inventoryFull = false
 let skillsFull = false
 let main = $("main")
@@ -11,6 +12,10 @@ let currentSlide = $("._slider2")
 let leftButtonSlide = $("._slider-left")
 let rightButtonSlide = $("._slider-right")
 
+function generateContactMeTab(){
+    main.empty()
+    main.append(contactMeContent)
+}
 
 /*slider*/
 let Quotes = ["Кодіть потрібно правильно, а не правильно не потрібно","Знаю все, окрім того що не знаю","Ти живеш як карта ляже , я живу як мама скаже"]
@@ -58,8 +63,20 @@ function generateInventory(){
     if (inventoryFull == false){
         
         let inventory = $('<div class="regalias__inventory"></div>')
-    for (let i=0 ; i<2 ;i++){
-        inventory.append("<div class = 'item_box'><div class='item-caption'>asdasdasd<div/></div>");
+    for (let i=0 ; i<200 ;i++){
+        if (i<regaliasListItems.length){
+            let el = $("<div class = 'item_box'></div>");
+            let capt = `<div class='item-caption'>${regaliasListItems[i]["caption"]}</div>`;
+            let icon = `<img class='item-icon' src="${regaliasListItems[i]["icon-src"]}"></img>`;
+            el.append(icon)
+            el.append(capt)
+            inventory.append(el)
+
+        }
+        else{
+            inventory.append("<div class = 'item_box'><div class='item-caption'></div></div>");
+        }
+        
     }
     regaliasBox.empty()
     regaliasBox.append(inventory)
@@ -102,22 +119,25 @@ function generateInventory(){
         });
     
 }
-
+let contactMeTab = $('.contactMe')
 let aboutMeTab = $('.aboutMe')
 let examplesTab = $('.examplesTab')
 
-let mainContent = $('main').children().clone()
-let imagesSiteExamples = ['','']
+contactMeTab.on('click',()=>{
+    generateContactMeTab()
+})
+let imagesSiteExamples = ['./images/cool-site.png','./images/cool-site.png','./images/cool-site.png']
 examplesTab.on('click',()=>{
     generateExamplesTab()
 })
 function generateExamplesTab(){
-    console.log(mainContent)
     main.empty()
-    for(key in imagesSiteExamples){
-        main.append('<div class = "site-example _box"></div>')
-    }
-    console.log(mainContent)
+    imagesSiteExamples.forEach((el)=>{
+        let siteBox = $('<div class ="site-example _box"></div>')
+        let siteImage = $(`<img src= ${el} alt="Тут повинен був бути крутий сайт" class="site-example__image"></img>`)
+        siteBox.append(siteImage)
+        main.append(siteBox)
+    })
     
 
 }

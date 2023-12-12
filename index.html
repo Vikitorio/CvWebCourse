@@ -7,56 +7,27 @@
     <title>Document</title>
 </head>
 <body>
-        <div class="header _box">
-            <div class="header__avatar">
-                <div class="header__portrait"></div>
-                <div class="header__moon"></div>
-                <div class="header__background"></div>
+        <header class="header _box">
+            <div class="header__profile">
+                <div class="header__avatar">
+                    <div class="header__portrait"></div>
+                    <div class="header__moon"></div>
+                    <div class="header__background"></div>
+                </div>
+                <div class="header__initials">
+                    <p class="header__name">Viktor</p>
+                    <p class="surname">Mykhalchevskyi</p>
+                </div>
             </div>
-            <div class="header__initials">
-                <p class="header__name">Viktor</p>
-                <p class="surname">Mykhalchevskyi</p>
-            </div>
+            
             <nav class="header__nav">
                 <p class="header__link aboutMe">About Me</p>
-                <p class="header__link">Contact Me</p>
+                <p class="header__link contactMe">Contact Me</p>
                 <p class="header__link examplesTab">Examples</p>
             </nav>
-        </div>
+        </header>
         <main class="main">
-            <section class="contact-me-tab _box">
-                <form action="" class="contact-me">
-                    <div class="contact-me__inputs-box">
-                    <div class="contact-me__info">
-                        <p class="contact-me__input-title">Name</p>
-                        <input type="text" class="contact-me__input">
-                    </div>
-                    <div class="contact-me__info">
-                        <p class="contact-me__input-title">Surname</p>
-                        <input type="text" class="contact-me__input">
-                    </div>
-                    <div class="contact-me__info">
-                        <p class="contact-me__input-title">Email</p>
-                        <input type="text" class="contact-me__input">
-                    </div>
-                    <div class="contact-me__info">
-                        <p class="contact-me__input-title">Phone</p>
-                        <input type="text" class="contact-me__input">
-                    </div>
-                    <div class="contact-me__info _request-topic">
-                        <label for="request-topic" class="contact-me__input-title">Request Topic</label>
-                        <select id="request-topic" name="request-topic">
-                            <option value="Work Proposal">Work Proposal</option>
-                            <option value="Problem">Problem</option>
-                            <option value="Money back">Money back</option>
-                          </select>
-                    </div>
-                    </div>
-                    <textarea name="" id="" cols="30" rows="10" class="contact-me__textbox"></textarea>
-                    <button type="submit" class="_btn">Submit</button>
-                </form>
-                
-            </section>
+            
            <!-- <section title="quotes" class="quotes _box">
                 <div class="quotes__slider">
                     <button class="quotes__button _slider-left"></button>
@@ -109,22 +80,18 @@
         </main>
         <footer title="Footer" class="Footer _box">
             <div class="Footer__box">
-                <div class="Footer__list">
-                    <p class="list__header">LINKS</p>
-                    <a href="" class="list__item">Services</a>
-                    <a href="" class="list__item">Contact</a>
-                    <a href="" class="list__item">Wagtail Course</a>
-                </div>
+            
                 <div class="Footer__list">
                     <p href="" class="list__header">CONTACT ME</p>
                     <a href="" class="list__item">Phone:380662769865</a>
                     <a href="" class="list__item">Mail:mikhalchevskiu@gmail.com</a>
-                    <button class="list__item"></button>
+                    
+                    <button class="list__item-btn _btn">Send Letter</button>
                 </div>
                 <div class="Footer__list">
-                    <div class="list__item _mediaicons">
-                        <a href="" class="media__icon"><img src="./img/logo-twitter.png" alt="" class="media__iconimg"></a>
-                        <a href="" class="media__icon"><img src="./img/youtube-logo.png" alt="" class="media__iconimg"></a>
+                    <div class="list__item _media-icons-box">
+                        <a href="" class="media__icon"><img src="./images/footer/icon-github-50.png" alt="" class="media__iconimg"></a>
+                        <a href="" class="media__icon"><img src="./images/footer/icon-telegram-light.png" alt="" class="media__iconimg"></a>
                     </div>
                 </ul>
             </div>

@@ -29,7 +29,7 @@ console.log(rightButtonSlide)
 
 
 $('document').ready(function() {
-    //generateAboutMeTab()
+    generateAboutMeTab()
     //changeQuoteText()
     //generateInventory()
 });

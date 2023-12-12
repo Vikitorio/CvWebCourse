@@ -76,8 +76,12 @@ a:hover{
    z-index: 1000;
 }
 
-.image-container {
+.overlay__image-container {
    position: relative;
+}
+.overlay__image{
+  width: 100%;
+  height: 80vh;
 }
 
 img {
@@ -161,6 +165,7 @@ img {
  /*----Quotes----*/
  .quotes{
    height: 300px;
+   font-size: 25px;
  }
  .quotes__slider{
     display: flex;
@@ -172,6 +177,9 @@ img {
  .quotes__element{
    width: 40%;
    text-align: center;
+ }
+ .quote__author{
+    font-size: 15px;
  }
  .quotes__button{
 
@@ -220,20 +228,18 @@ img {
 }
   .regalias__character-box{
    height: 350px;
+   max-width: calc(250px + 16px);
+   width: 100%;
    position: relative;
    background-color: var(--character-bacground);
    margin: 10px;
    border:  8px solid #000;
   }
-  /*.regalias__character{
-
-   position: absolute;
-   bottom: 10px;
-   width: 250px;
-   height: 250px;
-   background-image: url("./images/Chibic.gif");
+  .regalias__character{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
   }
-  */
   .regalias__content{
 
     margin: 0 auto 10px auto;
@@ -371,7 +377,7 @@ img {
     .list__item._media-icons-box{
       margin-left: 0;
    }
-
+  }
 
     /*----Quotes----*/
 

@@ -18,7 +18,7 @@ function generateContactMeTab(){
 }
 
 /*slider*/
-let Quotes = ["Кодіть потрібно правильно, а не правильно не потрібно","Знаю все, окрім того що не знаю","Ти живеш як карта ляже , я живу як мама скаже"]
+let Quotes = ["Кодіть потрібно правильно, а не правильно не потрібно","Знаю все, окрім того що не знаю","Не всі клоуни виступають в цирку"]
 let currentQuote = 0;
 $('.Quotes__slider').on("click", function(){
     console.log("s")
@@ -43,7 +43,9 @@ function changeQuoteText(){
     else if(currentQuote<0){
         currentQuote=Quotes.length-1
     }
+    currentSlide.empty()
     currentSlide.text(Quotes[currentQuote])
+    currentSlide.append("<br><span class='quote__author'>В. Михальчевський 700 років до н.е<span>")
 }
 
 
@@ -83,40 +85,54 @@ function generateInventory(){
     skillsFull = false
     inventoryFull = true
     }
-    $(".item_box").hover(function (event){
-        let element = $(this);
-        console.log('asd')
-        let desk = element.find('.item-caption')
-        console.log(event.clientX)
-        let x = event.pageX - element.offset().left;
-        let y = event.pageY - element.offset().top;
-        desk.show()
-        desk.css({left: x + "px",top: y + "px"})
-        
-        element.on('mousemove', function(event) {
-            x = event.pageX - element.offset().left;
-            y = event.pageY - element.offset().top;
-            desk.css({ left: x + 'px', top: y + 'px' });
-        });
-    },function() {
-        let element = $(this);
-        let description = element.find('.item-caption');
-        description.hide();
-        element.off('mousemove');})
-        
-        $('.item_box').click(function() {
+    let inventoryItemsArray = $('.item_box')
+    for (var i = 0; i < regaliasListItems.length; i++) {
+
+        addHoverEvent(inventoryItemsArray[i])
+        addClick(inventoryItemsArray[i],regaliasListItems[i])
+
+
+    }
+    function addHoverEvent(currentItem){
+        console.log( currentItem)
+        $(currentItem).hover(function (event){
+            let element = $(currentItem);
+            console.log('asd')
+            let desk = element.find('.item-caption')
+            console.log(event.clientX)
+            let x = event.pageX - element.offset().left;
+            let y = event.pageY - element.offset().top;
+            desk.show()
+            desk.css({left: x + "px",top: y + "px"})
+            
+            element.on('mousemove', function(event) {
+                x = event.pageX - element.offset().left;
+                y = event.pageY - element.offset().top;
+                desk.css({ left: x + 'px', top: y + 'px' });
+            });
+        },function() {
+            let element = $(this);
+            let description = element.find('.item-caption');
+            description.hide();
+            element.off('mousemove');})
+    }
+   
+    function addClick(item,itemInfo=""){
+        $(item).click(function() {
             var overlay = $('<div class="overlay"></div>');
-            var imageContainer = $('<div class="image-container"></div>');
-            var image = $('<img src="шлях_до_зображення.jpg" alt="Зображення">');
+            var imageContainer = $('<div class="overlay__image-container"></div>');
+            var image = $(`<img src=${itemInfo['full-img-src']} class="overlay__image" alt="Зображення">`);
             var closeButton = $('<button class="close-button">Закрити</button>');
             imageContainer.append(image);
             imageContainer.append(closeButton);
-            overlay.append(imageContainer);
+             overlay.append(imageContainer);
             $('body').append(overlay);
             overlay.click(function() {
                 overlay.remove();
-            });return false;
+            });
+        return false;
         });
+    }
     
 }
 let contactMeTab = $('.contactMe')

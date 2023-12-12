@@ -4,8 +4,8 @@ export let  aboutMeContent = `
 <div class = "aboutMe__text">
 <h1 class="aboutMe__title">About Me</h1>
 <div>Privet, Ja sumui samui ofigetelnii programist<br>
-Vozmite menja rabotat za edu , ochen hotet kushat</div></div></section>
-<section class="regalias _box">
+Vozmite menja rabotat za edu , ochen hotet kushat</div></div>
+</section>
 <section title="quotes" class="quotes _box">
 <div class="quotes__slider">
     <button class="quotes__button _slider-left"></button>
@@ -13,7 +13,7 @@ Vozmite menja rabotat za edu , ochen hotet kushat</div></div></section>
     <button class="quotes__button _slider-right"></button>
 </div>
 </section>
-
+<section class="regalias _box">
 <div class="regalias__about-me"></div>
 <div class="regalias__profile">
     <div class="regalias__character-box">

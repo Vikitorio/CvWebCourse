@@ -11,7 +11,7 @@ export let regaliasListItems = [
         "id":2,
         "title":"Oscar",
         "caption":"Oscar Award",
-        "icon-src":"./images/inventory/Scroll.png",
+        "icon-src":"./images/inventory/Oscar-icon.png",
         "full-img-src":"./images/inventory/Oscar.png",
 
     }

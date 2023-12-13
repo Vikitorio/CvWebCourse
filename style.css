@@ -120,6 +120,7 @@ img {
  }
  .header__initials{
   display: flex;
+  justify-content: center;
  }
  .header__name{
   margin-right: 20px;
@@ -159,6 +160,13 @@ img {
  @media  (max-width:760px) {
   .header__avatar{
     max-width: 300px;
+  }
+   
+ }
+ @media  (max-width:360px) {
+  .header__initials{
+    flex-wrap: wrap;
+ 
   }
    
  }
@@ -253,14 +261,13 @@ img {
    flex-grow: 3;
   }
   .regalias__box{
-   height: calc(100% - 60px);
 
   }
   .regalias__inventory{
    display: flex;
    flex-wrap: wrap;
    height: 100%;
-   max-height: 300px;
+   max-height: calc(350px - 40px - 16px - 10px);
    overflow: hidden;
 
   }

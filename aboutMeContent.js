@@ -12,6 +12,12 @@ Vozmite menja rabotat za edu , ochen hotet kushat</div></div>
     <div class="quotes__element _slider2"></div>
     <button class="quotes__button _slider-right"></button>
 </div>
+
+<div class='quotes__ball-container'>
+<div class='quotes__ball _ball__1'></div>
+<div class='quotes__ball _ball__2 _ball__active'></div>
+<div class='quotes__ball _ball__3'></div>
+</div>
 </section>
 <section class="regalias _box">
 <div class="regalias__about-me"></div>

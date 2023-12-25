@@ -5,12 +5,23 @@ import {contactMeContent} from './contactMeContent.js';
 import { regaliasListItems } from './regaliasListItems.js';
 let inventoryFull = false
 let skillsFull = false
+let currentTabButton = $('.aboutMe')
 let main = $("main")
 let regaliasContent = $(".regalias__content")
 let regaliasBox = $(".regalias__box")
 let currentSlide = $("._slider2")
 let leftButtonSlide = $("._slider-left")
 let rightButtonSlide = $("._slider-right")
+let contactMeTab = $('.contactMe')
+let aboutMeTab = $('.aboutMe')
+let examplesTab = $('.examplesTab')
+
+$('.header__link').on('click', function () {
+    currentTabButton.removeClass('_active__tab')
+    $(this).addClass('_active__tab')
+    currentTabButton = $(this)
+})
+
 
 function generateContactMeTab(){
     main.empty()
@@ -19,12 +30,10 @@ function generateContactMeTab(){
 
 /*slider*/
 let Quotes = ["Кодіть потрібно правильно, а не правильно не потрібно","Знаю все, окрім того що не знаю","Не всі клоуни виступають в цирку"]
-let currentQuote = 0;
+let currentQuote = 2;
 $('.Quotes__slider').on("click", function(){
-    console.log("s")
 });
 
-console.log(rightButtonSlide)
 
 
 
@@ -36,7 +45,6 @@ $('document').ready(function() {
 
 
 function changeQuoteText(){
-    console.log(Quotes.length-1)
     if(currentQuote>Quotes.length-1){
         currentQuote-=Quotes.length
     }
@@ -53,7 +61,6 @@ function changeQuoteText(){
 
 
 function generateSkills(){
-    console.log()
     if (skillsFull == false){
         regaliasBox.empty()
         inventoryFull = false
@@ -94,12 +101,9 @@ function generateInventory(){
 
     }
     function addHoverEvent(currentItem){
-        console.log( currentItem)
         $(currentItem).hover(function (event){
             let element = $(currentItem);
-            console.log('asd')
             let desk = element.find('.item-caption')
-            console.log(event.clientX)
             let x = event.pageX - element.offset().left;
             let y = event.pageY - element.offset().top;
             desk.show()
@@ -135,9 +139,8 @@ function generateInventory(){
     }
     
 }
-let contactMeTab = $('.contactMe')
-let aboutMeTab = $('.aboutMe')
-let examplesTab = $('.examplesTab')
+
+
 
 contactMeTab.on('click',()=>{
     generateContactMeTab()
@@ -157,6 +160,8 @@ function generateExamplesTab(){
     
 
 }
+let currentValue = 2; // Initial position
+let quoteTimer;
 function generateAboutMeTab(){
     main.empty()
     main.append(aboutMeContent)
@@ -170,19 +175,24 @@ function generateAboutMeTab(){
     rightButtonSlide = $("._slider-right")
     
     leftButtonSlide.on("click",() => {
-        console.log('asdasd')
-        currentQuote-=1
+        sliderChange(-1)
     changeQuoteText()})
     rightButtonSlide.on("click",() => {
-        currentQuote+=1
-    
-        changeQuoteText()
-    })
+        sliderChange(1)
 
+    })
+    function sliderChange(val=1){
+        if (quoteTimer) {
+            clearTimeout(quoteTimer);
+          }
+        currentQuote+=val
+        changeCurrentBall(val)
+        changeQuoteText()
+        quoteTimer = setTimeout(sliderChange, 5000);
+    }
     $(".regalias__education").on("click",() => {
         generateInventory()})
     function showDescription(){
-        console.log('asd')
         let desk = this.$('.item-caption')
         let x = this.clientX
         let y = this.clientY
@@ -191,13 +201,11 @@ function generateAboutMeTab(){
         
     }
     $(".regalias__skills").on("click",()=>{
-        console.log('clear invnt');
         generateSkills()
     
         
     })
     leftButtonSlide.on("click",() => {
-    console.log('asdasd')
     currentQuote-=1
 changeQuoteText()})
 rightButtonSlide.on("click",() => {
@@ -208,9 +216,40 @@ rightButtonSlide.on("click",() => {
     changeQuoteText()
     generateInventory()
     
+   function changeCurrentBall(value) {
+        if (value < 0) {
+            currentValue = (currentValue - 1 < 1) ? 3 : currentValue - 1;
+            console.log(currentValue)
+            updateBalls(-1);
+        } else if (value > 0) {
+            currentValue = (currentValue + 1 > 3) ? 1 : currentValue + 1;
+            console.log(currentValue)
+            updateBalls(+1);
+        }
+
+        
+    };
+    $(`.quotes__ball._ball__${2}`).addClass("_ball__active");
+    $(`.quotes__ball._ball__${2}`).css({"transform": `translateX(0px)`})
+    $(`.quotes__ball._ball__${1}`).css({"transform": `translateX(30px)`})
+    $(`.quotes__ball._ball__${3}`).css({"transform": `translateX(-30px)`})
+    sliderChange()
 
 }
 
 aboutMeTab.on('click',()=>{
     generateAboutMeTab()
 })
+
+
+function updateBalls(Value) {
+    $(".quotes__ball").removeClass("_ball__active");
+    let rightValue = (currentValue + 1 > 3) ? 1 : currentValue + 1;
+    let leftValue = (currentValue - 1 < 1) ? 3 : currentValue - 1;
+    
+    $(`.quotes__ball._ball__${currentValue}`).addClass("_ball__active");
+    $(`.quotes__ball._ball__${currentValue}`).css({"transform": `translateX(0px)`})
+    $(`.quotes__ball._ball__${rightValue}`).css({"transform": `translateX(-30px)`})
+    $(`.quotes__ball._ball__${leftValue}`).css({"transform": `translateX(30px)`})
+    
+}

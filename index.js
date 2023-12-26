@@ -1,5 +1,5 @@
-
-let skillContent = '<div class="regalias__skills_box"><div class="skills-item"><h2 class="skills-item__title">Languages</h3><ul class="skills-item__list"><li class="skills-item__li">-English:B1</li><li class="skills-item__li">-Ukrainian:Native</li></ul></div><div class="skills-item"><h2 class="skills-item__title">Design</h3><ul class="skills-item__list"><li class="skills-item__li">-Figma</li><li class="skills-item__li">-Photoshop</li><li class="skills-item__li">-CorelDraw</li></ul></div><div class="skills-item"><h2 class="skills-item__title">Programing</h3><ul class="skills-item__list"><li class="skills-item__li">-HTML/CSS/JS</li><li class="skills-item__li">-mySQL</li><li class="skills-item__li">-Python</li></ul></div></div>'
+import {skillContent} from './skillContent.js';
+let skillContentl = '<div class="regalias__skills_box"><div class="skills-item"><h2 class="skills-item__title">Languages</h3><ul class="skills-item__list"><li class="skills-item__li">-English:B1</li><li class="skills-item__li">-Ukrainian:Native</li></ul></div><div class="skills-item"><h2 class="skills-item__title">Design</h3><ul class="skills-item__list"><li class="skills-item__li">-Figma</li><li class="skills-item__li">-Photoshop</li><li class="skills-item__li">-CorelDraw</li></ul></div><div class="skills-item"><h2 class="skills-item__title">Programing</h3><ul class="skills-item__list"><li class="skills-item__li">-HTML/CSS/JS</li><li class="skills-item__li">-mySQL</li><li class="skills-item__li">-Python</li></ul></div></div>'
 import {aboutMeContent} from './aboutMeContent.js';
 import {contactMeContent} from './contactMeContent.js';
 import { regaliasListItems } from './regaliasListItems.js';
@@ -26,6 +26,22 @@ $('.header__link').on('click', function () {
 function generateContactMeTab(){
     main.empty()
     main.append(contactMeContent)
+    $('.contact-me__btn').on('click', sendEmail)
+}
+function sendEmail() {
+    console.log('start sending')
+    let name = $('#input__name').val();
+    let surname = $('#input__surname').val();
+    let phone = $('#input__phone').val();
+    let mainText = $('#input__main-text').val();
+    let topic = $('#request-topic').val();
+   
+    let  to = encodeURIComponent("mikhalchevskiu@gmail.com");
+    let  subject = encodeURIComponent(`Website response - ${topic}`);
+    let body = encodeURIComponent(`Full Name: ${name} ${surname} \n Phone : ${phone} \n Topic : ${topic} \n ${mainText}`);
+    let mailtoLink = "mailto:mikhalchevskiu@gmail.com?subject=" + subject + "&body=" + body;
+    let gmailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=" + to + "&su=" + subject + "&body=" + body;
+    window.open(gmailLink, '_blank');
 }
 
 /*slider*/

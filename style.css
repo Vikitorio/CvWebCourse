@@ -309,9 +309,12 @@ textarea{
 
   .skills-item{
    font-size: 25px;
-   min-height: 145px;
-   margin: auto 10px;
+    min-height: 280px;
+    max-width: 220px;
+    display: flex;
+    flex-direction: column;
 
+    align-items: center;
   }
   .skills-item__list{
    list-style: none;
@@ -362,6 +365,7 @@ textarea{
   }
   .skills-item{
     flex-grow: 3;
+
   }
 }
 @media  (max-width:970px) {

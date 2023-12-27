@@ -3,8 +3,8 @@ export let  aboutMeContent = `
 
 <div class = "aboutMe__text">
 <h1 class="aboutMe__title">About Me</h1>
-<div>Privet, Ja sumui samui ofigetelnii programist<br>
-Vozmite menja rabotat za edu , ochen hotet kushat</div></div>
+<div>Privet, Ja sumui samui garnuj programist<br>
+Vozmit mene pracuvat za jizu , ochen hochu jistu. Mayu 15 rokiv dosvidu v webprogramuvanni</div></div>
 </section>
 <section title="quotes" class="quotes _box">
 <div class="quotes__slider">

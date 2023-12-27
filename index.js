@@ -42,6 +42,11 @@ function sendEmail() {
     let mailtoLink = "mailto:mikhalchevskiu@gmail.com?subject=" + subject + "&body=" + body;
     let gmailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=" + to + "&su=" + subject + "&body=" + body;
     window.open(gmailLink, '_blank');
+    if (isMobile()) {
+        window.location.href = mailtoLink;
+    } else {
+        window.open(gmailLink, '_blank');
+    }
 }
 
 /*slider*/
